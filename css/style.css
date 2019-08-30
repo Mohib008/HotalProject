@@ -35,7 +35,8 @@ $gutter-horizontal: 4rem;
 *,
 *::before,
 *::after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  position: relative; }
 
 html {
   box-sizing: border-box;
@@ -94,7 +95,8 @@ body {
 .user-nav {
   align-self: stretch;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  align-content: center; }
   .user-nav > * {
     padding: 0 2rem;
     cursor: pointer;
@@ -113,7 +115,7 @@ body {
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
-    background-color: var(--color-secondary-dark);
+    background-color: #ff7730;
     color: #fff;
     position: absolute;
     top: 1.5rem;
@@ -131,6 +133,7 @@ body {
   list-style: none;
   margin-top: 3.5rem; }
   .side-nav__item {
+    display: flex;
     position: relative; }
     .side-nav__item:not(:last-child) {
       margin-bottom: .5rem; }
@@ -141,7 +144,7 @@ body {
     left: 0;
     height: 100%;
     width: 3px;
-    background-color: var(--color-primary-light);
+    background-color: #55c57a;
     transform: scaleY(0);
     transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s; }
   .side-nav__item:hover::before, .side-nav__item--active::before {
@@ -177,6 +180,47 @@ body {
     width: 100%;
     display: block; }
 
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-grey-dark-2); }
+  .overview__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    padding: 1.5rem 3rem; }
+  .overview__stars {
+    margin-right: auto; }
+  .overview__icon-star, .overview__icon-location {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: var(--color-secondary-dark); }
+
+.btn-inline {
+  border: node;
+  color: var(--color-secondary-dark);
+  padding: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .2s; }
+  .btn-inline:hover {
+    color: var(--color-grey-dark); }
+  .btn-inline:focus {
+    outline: none;
+    animation: pulsate 1s infinite; }
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none; }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25); }
+  100% {
+    transform: scale(1);
+    box-shadow: none; } }
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
@@ -188,7 +232,7 @@ body {
   font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: var(--color-grey-dark);
+  border-bottom: 1px solid var(--color-grey-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
